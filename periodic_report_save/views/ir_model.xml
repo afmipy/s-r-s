@@ -1,0 +1,30 @@
+ <odoo>
+     <!-- Inherit Form View to Modify it -->
+     <record id="add_has_report_boolean" model="ir.ui.view">
+         <field name="name">ir.model.boolean</field>
+         <field name="model">ir.model</field>
+         <field name="inherit_id" ref="base.view_model_form"/>
+         <field name="arch" type="xml">
+
+             <xpath expr="//field[@name='transient']" position="after">
+                 <!-- Add your fields or attributes here -->
+                 <field name="has_report"/>
+             </xpath>
+
+         </field>
+     </record>
+
+
+     <record id="add_has_report_boolean_tree" model="ir.ui.view">
+         <field name="name">ir.model.boolean.tree</field>
+         <field name="model">ir.model</field>
+         <field name="inherit_id" ref="base.view_model_tree"/>
+         <field name="arch" type="xml">
+
+             <xpath expr="//field[@name='transient']" position="after">
+                 <field name="has_report"/>
+             </xpath>
+
+         </field>
+     </record>
+ </odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_print_history_manager,access_print_history_manager,model_print_history,print_history.print_history_security_manager,1,1,1,1

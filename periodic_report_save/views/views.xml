@@ -1,0 +1,120 @@
+<odoo>
+    <record id="periodic_report_save_form" model="ir.ui.view">
+        <field name="name">periodic.report.save.form</field>
+        <field name="model">periodic.report.save</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="test"
+                            string="Test"
+                            type="object">
+
+                    </button>
+                </header>
+                <sheet>
+
+                    <group>
+                        <field name="user_id"/>
+
+                        <!--                        <field name="path"/>-->
+                    </group>
+
+                    <field name="periodic_report_save_model_ids" widget="one2many_list">
+                        <tree editable="bottom" default_group_by="model">
+                            <field name="model" required="True" widget="selection"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="report_ids" widget="many2many_tags" domain="[('model','=',model_name)]"
+                                   options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                        </tree>
+                    </field>
+
+                    <field name="periodic_report_result_ids">
+                        <tree create="0" delete="0">
+                            <field name="model_name"/>
+                            <field name="binary_ids" widget="many2many_tags"/>
+                            <field name="periodic_report_save_id" invisible="1"/>
+                            <field name="zip" widget="binary" filename="zip_filename"/>
+                            <field name="zip_filename" invisible="1"/>
+
+                        </tree>
+                    </field>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="periodic_report_save_tree" model="ir.ui.view">
+        <field name="name">periodic.report.save.tree</field>
+        <field name="model">periodic.report.save</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="user_id"/>
+                <!--                <field name="path"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="periodic_report_binary_form" model="ir.ui.view">
+        <field name="name">periodic.report.binary</field>
+        <field name="model">periodic.report.binary</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="binary_id" filename="filename"/>
+                        <field name="filename"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="periodic_report_result_action" model="ir.ui.view">
+        <field name="name">periodic.report.result</field>
+        <field name="model">periodic.report.result</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="model_name"/>
+
+                        <field name="binary_ids">
+                            <tree>
+                                <field name="binary_id" widget="binary" filename="filename"/>
+                                <field name="filename"/>
+                            </tree>
+                        </field>
+                        <field name="zip" widget="binary" filename="zip_filename"/>
+                        <field name="zip_filename" invisible="1"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="periodic_report_save_action" model="ir.actions.act_window">
+        <field name="name">Periodic report saving</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">periodic.report.save</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="periodic_report_save_menu" name="Periodic report saving" action="periodic_report_save_action"
+              sequence="99"/>
+</odoo>

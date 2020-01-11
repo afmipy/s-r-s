@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_periodic_report_save_admin,access_periodic_report_save_admin,model_periodic_report_save,,1,1,1,1
+access_periodic_report_save_user,access_periodic_report_save_user,model_periodic_report_save,,1,1,1,1
+
+
+access_periodic_report_save_model_admin,access_periodic_report_save_model_admin,model_periodic_report_save_model,,1,1,1,1
+access_periodic_report_save_model_user,access_periodic_report_save_model_user,model_periodic_report_save_model,,1,1,1,1
+
+
+access_periodic_report_result_admin,access_periodic_report_result_admin,model_periodic_report_result,,1,1,1,1
+access_periodic_report_result_user,access_periodic_report_result_user,model_periodic_report_result,,1,1,1,1
+
+access_periodic_report_binary_admin,access_periodic_report_binary_admin,model_periodic_report_binary,,1,1,1,1
+access_periodic_report_binary_user,access_periodic_report_binary_user,model_periodic_report_binary,,1,1,1,1

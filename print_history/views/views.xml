@@ -1,0 +1,40 @@
+<odoo>
+    <record id="print_history_form"  model="ir.ui.view">
+        <field name="name">Print history</field>
+        <field name="model">print.history</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="report_name"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+   <record id="print_history_tree" model="ir.ui.view">
+       <field name="name">Print history</field>
+       <field name="model">print.history</field>
+       <field name="arch" type="xml">
+           <tree create="0" delete="0">
+               <field name="user_id"/>
+               <field name="report_name"/>
+               <field name="date"/>
+           </tree>
+       </field>
+   </record>
+
+    <record id="print_history_action" model="ir.actions.act_window">
+        <field name="name">Print history</field>
+        <field name="res_model">print.history</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="print_history_menu" name="Print history" action="print_history.print_history_action" />
+
+    <!-- This Menu Item must have a parent and an action -->
+</odoo>
